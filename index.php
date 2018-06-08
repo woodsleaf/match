@@ -1,4 +1,14 @@
 <?php
+    /**
+     * PHP version 7.0.4
+     * 
+     * @category CategoryName
+     * @package  Match
+     * @author   Original Author <woodsleaf@gmail.com>
+     * @license  http://www.php.net/license/3_01.txt  PHP License 3.01
+     * @link     http://pear.php.net/package/PackageName
+     * @git      git clone git@github.com:woodsleaf/match.git
+     */
 
 
 /**
@@ -27,6 +37,7 @@ function match($c1, $c2)
     return $arr;
 }
 
+
 /**
  * Function lid($dat)
  *
@@ -45,6 +56,14 @@ function lid($dat)
     return $maxwin;
 }
 
+
+/**
+ * Function perc($datateam)
+ *
+ * @param array $datateam one team array
+ * 
+ * @return array $result_med
+ */
 function perc($datateam)
 {
 
@@ -66,8 +85,9 @@ function perc($datateam)
     $luck = round($l, 2);
     $scorerate = $datateam["goals"]["scored"]/$datateam['games'];  // Среднее количество голов за игру
     $skiprate = $datateam["goals"]["skiped"]/$datateam['games'];  // Среднее количество пропущенных за игру
-    return ['name' => $datateam["name"], 'luck' => $luck, 'scorerate' => $scorerate, 'skiprate' => $skiprate];
+    $result_med = ['name' => $datateam["name"], 'luck' => $luck, 'scorerate' => $scorerate, 'skiprate' => $skiprate];
+    return $result_med;
 }
 
-$result = match(0, 2);
-echo $result[0], ' ', $result[1], '<br>';
+// $result = match(0, 2);
+// echo $result[0], ' ', $result[1], '<br>';
